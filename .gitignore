@@ -1,0 +1,10 @@
+notes.txt
+
+# ignore the folder and its contents
+node_modules/
+
+# ignore the file that stores sensitive data
+.env 
+
+# ignore all files that have the extension .log
+*.log 
