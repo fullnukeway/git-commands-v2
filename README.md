@@ -172,6 +172,35 @@ Here's a visual representation of how **merging** works:
 
 ---
 
+## 9.1. Merge Options
+
+When conducting a pull request on GitHub, you are presented with three distinct strategies for integrating your code. Choose the right one on how you want your **project's history** should look like:
+
+> **Goal:** The goal is to organise and maintain a repository health for team collaboration.
+
+| Option | History Style | Traceability | Cleanliness |
+| :--- | :--- | :--- | :--- |
+| **Create a merge commit** | Non-linear (Branching) | High |	Low (Can get messy) |
+| **Squash and merge** | Linear | Low | High (Very clean) |
+| **Rebase and merge** | Linear	| High | High |
+
+| Type of Merge | Example Illustration |
+| :--- | :--- |
+| **Create a merge commit** | ![Git Merge](assets/images/merge-commit.png) |
+| **Squash and merge** | ![Git Merge](assets/images/squash-merge.png) |
+| **Rebase and merge** | ![Git Merge](assets/images/rebase-merge.png) |
+
+The following table describes the **merge options** available during a pull request and the commands that apply:
+
+| Type of Merge | Command Equivalent | Description |
+| :--- | :--- | :--- |
+| **Create a merge commit** | `git merge --no-ff` | This is the default "classic" option. It takes all the commits from your feature branch and ties them into the main branch as a new merge commit to represent the merge. The branch history is kept alive and the merge point can be seen (thus, known as a **no fast forward merge**).
+| **Squash and merge** | `git merge --squash` | This option takes every single commit from the feature branch and **condenses them into one single, tidy commit** on the main branch. The disadvantage is that this approach obscures the commits (or changes) that had taken place before the merge (rewriting the branch history to produce one clean commit). |
+| **Rebase and merge** | `git rebase + git merge` | This option takes each individual commit from the feature branch and moves them onto the tip of the main branch **without creating a merge commit**. The result is a **perfectly linear history with no branching lines - thus professional-looking and easy to navigate.** However, complexity may arise if there are significant merge conflicts, which have to be resolved commit-by-commit rather than all at once. 
+
+
+---
+
 ## 10. Cleaning up branches
 
 | Command | Description |
@@ -232,4 +261,4 @@ A **merge conflict** happens when two different branches (or a local branch and 
 
 ---
 
-© 2025. Prepared by Martin Leong.
+© 2025. Prepared by Martin Leong. Updated on 23 Mar 2026.
